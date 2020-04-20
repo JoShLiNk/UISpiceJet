@@ -9,7 +9,6 @@ public class PropertyLoader {
 	//Usar sin necesidad de crear objeto de la clase
 	 static Properties prop=new Properties();
 
-	static class ProertyLoader{
 		 static String propFileName="config.properties";
 		 
 		 //static se ejecuta cuando se quiera acceder a properti loader
@@ -23,8 +22,7 @@ public class PropertyLoader {
 		 }
 		 
 		 private static void loadPropertiesFile() throws IOException {
-			 FileInputStream inputStream=null;
-			 
+			 FileInputStream inputStream=null;			 
 			 try {
 				inputStream= new FileInputStream(propFileName);
 				if (inputStream!=null) {
@@ -39,7 +37,7 @@ public class PropertyLoader {
 			 
 		 }
 		 
-	}
+	
 	 public static String getProperty(Constants key) {
 			return prop.getProperty(key.toString());
 		 }
