@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="5488" started-at="2020-04-30T00:51:40 MDT" finished-at="2020-04-30T00:51:46 MDT">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="5488" started-at="2020-04-30T00:51:40 MDT" finished-at="2020-04-30T00:51:46 MDT">
+      <class name="com.regression.Test_1">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.regression.Test_1@63192798]" name="beforeMethod" is-config="true" duration-ms="266" started-at="2020-04-30T00:51:40 MDT" finished-at="2020-04-30T00:51:41 MDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="f()[pri:0, instance:com.regression.Test_1@63192798]" name="f" duration-ms="3901" started-at="2020-04-30T00:51:41 MDT" finished-at="2020-04-30T00:51:45 MDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f -->
+        <test-method status="PASS" signature="AfterMethod()[pri:0, instance:com.regression.Test_1@63192798]" name="AfterMethod" is-config="true" duration-ms="1281" started-at="2020-04-30T00:51:45 MDT" finished-at="2020-04-30T00:51:46 MDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterMethod -->
+      </class> <!-- com.regression.Test_1 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
