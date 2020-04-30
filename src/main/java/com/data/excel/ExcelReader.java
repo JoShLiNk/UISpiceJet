@@ -1,13 +1,19 @@
-package excel;
+package com.data.excel;
+
+import java.io.IOException;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.json.JSONArray;
 //import org.json.JSONArray;
 import org.json.JSONObject;
+
+import com.data.Constants;
+import com.data.PropertyLoader;
 
 public class ExcelReader {
 
@@ -15,7 +21,7 @@ public class ExcelReader {
 	static int lastRow;
 	static int lastColumn;
 
-	@SuppressWarnings("unused")
+	// @SuppressWarnings("unused")
 	public static String getDataInJsonFormat(Sheet sheet) {
 
 		JSONArray array = new JSONArray();
@@ -28,7 +34,7 @@ public class ExcelReader {
 		for (int i = 0; i <= lastRow; i++) {
 
 			row = sheet.getRow(i);
-			if (row != null) {
+			if (true) {
 				for (int j = 0; j < lastColumn; j++) {
 					String value;
 
@@ -66,6 +72,21 @@ public class ExcelReader {
 
 		} else {
 			return null;
+		}
+
+	}
+
+	public static String getDefaultData() {
+		String json = null;
+
+		try {
+			wBook = new XSSFWorkbook(PropertyLoader.getProperty(Constants.DATA_FILE));
+			Sheet sheet = wBook.getSheetAt(0);
+			return getDataInJsonFormat(sheet);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+			return json;
 		}
 
 	}

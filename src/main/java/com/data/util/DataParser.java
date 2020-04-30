@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
 
@@ -18,7 +17,7 @@ public class DataParser {
 //parsejason es get aunqe no tenga get
 	public static <T> List<T> parseJson(String json, Class<?> clazz) {
 		ObjectMapper mapper = new ObjectMapper();// <= Inicializas el objeto
-		mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+		// mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 
 		try {
 			// Consturye con el mapa , de tipo arraylist que sea igual a clazz en este caso
