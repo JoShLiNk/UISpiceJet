@@ -19,7 +19,7 @@ public class MainPage {
 	@FindBy(xpath = "//*[@id=\"BookingEngineOlyFlight\"]/div[2]/div[2]/div[1]/div[1]/button[2]")
 	WebElement dd_destination;
 
-	@FindBy(xpath = "//*[@id=\"BookingEngineOlyFlight\"]/div[2]/div[3]/button")
+	@FindBy(xpath = "//*[@id=\"BookingEngineOlyFlight\"]/div[2]/div[3]")
 	WebElement dd_passengers;
 
 	@FindBy(id = "SearchAvailabilityButton")
@@ -30,6 +30,15 @@ public class MainPage {
 
 	@FindBy(id = "input-destination")
 	WebElement txt_destination;
+
+	@FindBy(xpath = "//*[@id='ADTPax']/div/p[2]/button[2]")
+	WebElement btn_addAdult;
+
+	@FindBy(xpath = "//*[@id='CHDPax']/div/p[2]/button[2]")
+	WebElement btn_addChild;
+
+	@FindBy(xpath = "//*[@id='INFPax']/div/p[2]/button[2]")
+	WebElement btn_addInfant;
 
 	public MainPage(WebDriver driver) {
 
@@ -71,8 +80,14 @@ public class MainPage {
 		}
 	}
 
-	public void clickOrigin() {
-		dd_origin.click();
+	public boolean clickOrigin() {
+		boolean result = false;
+		try {
+			dd_origin.click();
+			return result = true;
+		} catch (Exception e) {
+			return result;
+		}
 	}
 
 	public boolean clickDestination() {
@@ -82,6 +97,48 @@ public class MainPage {
 			return true;
 		} catch (Exception e) {
 			return result;
+		}
+	}
+
+	public boolean clickPassengers() {
+		try {
+			dd_passengers.click();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public boolean clickAddAdult(int count) {
+		try {
+			for (int i = 1; i < count; i++) {
+				btn_addAdult.click();
+			}
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public boolean clickAddChild(int count) {
+		try {
+			for (int i = 0; i < count; i++) {
+				btn_addChild.click();
+			}
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public boolean clickAddInfant(int count) {
+		try {
+			for (int i = 0; i < count; i++) {
+				btn_addInfant.click();
+			}
+			return true;
+		} catch (Exception e) {
+			return false;
 		}
 	}
 

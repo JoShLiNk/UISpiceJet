@@ -1,6 +1,6 @@
 package com.vo;
 
-public class Report {
+public class Report implements IExcelWriter {
 
 	private String testName;
 	private String status;
@@ -44,6 +44,19 @@ public class Report {
 	@Override
 	public String toString() {
 		return "Report [testName=" + testName + ", status=" + status + ", failedDescription=" + failedDescription + "]";
+	}
+
+	@Override
+	public String[] getHeaders() {
+		String[] headers = { "Test Case", "Status", "Failed Description" };
+
+		return headers;
+	}
+
+	@Override
+	public Object[] getValues() {
+		Object[] values = { getTestName(), getStatus(), getFailedDescription() };
+		return values;
 	}
 
 }

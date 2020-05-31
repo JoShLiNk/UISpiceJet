@@ -15,19 +15,32 @@ public class DataParser {
 	// T >
 	// <T>
 //parsejason es get aunqe no tenga get
+
 	public static <T> List<T> parseJson(String json, Class<?> clazz) {
 		ObjectMapper mapper = new ObjectMapper();// <= Inicializas el objeto
 		// mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 
 		try {
-			// Consturye con el mapa , de tipo arraylist que sea igual a clazz en este caso
 			CollectionType listType = mapper.getTypeFactory().constructCollectionType(ArrayList.class, clazz);
+
 			List<T> returnList = mapper.readValue(json, listType);
 			return returnList;
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 			return null;
 		}
+
+	}
+
+	public static <T> String parseObject(Object[] list) {
+		ObjectMapper mapper = new ObjectMapper();
+
+		try {
+			return mapper.writeValueAsString(list);
+		} catch (Exception e) {
+			return null;
+		}
+
 	}
 
 }
